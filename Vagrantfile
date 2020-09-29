@@ -7,10 +7,42 @@
 # IP addresses for the VMs.
 
 Vagrant.configure("2") do |config|
-  # Box previously used in labs, so reusing it here should save a
-  # bit of time by using a cached copy.
+   config.vm.box = "dummy"
+  config.vm.provider :aws do |aws, override|
 
-  config.vm.box = "ubuntu/xenial64"
+    # The region for Amazon Educate is fixed.
+    aws.region = "us-east-1"
+
+    override.nfs.functional = false
+    override.vm.allowed_synced_folder_types = :rsync
+
+    aws.keypair_name = "cosc349"
+    override.ssh.private_key_path = "~/.ssh/cosc349.pem"
+
+    aws.instance_type = "t2.micro"
+
+    aws.security_groups = ["sg-07946052c68426ac7"]
+
+    aws.availability_zone = "us-east-1a"
+    ##aws.subnet_id = ""
+
+    # You need to chose the AMI (i.e., hard disk image) to use. This
+    # will be of the form "ami-...".
+    # 
+    # If you want to use Ubuntu Linux, you can discover the official
+    # Ubuntu AMIs: https://cloud-images.ubuntu.com/locator/ec2/
+    #
+    # You need to get the region correct, and the correct form of
+    # configuration (probably amd64, hvm:ebs-ssd, hvm).
+    #
+    ##aws.ami = ""
+
+    # If using Ubuntu, you probably also need to uncomment the line
+    # below, so that Vagrant connects using username "ubuntu".
+    ##override.ssh.username = "ubuntu"
+  end
+
+
 
   ## Front end web server.
   config.vm.define "webserver" do |webserver|
