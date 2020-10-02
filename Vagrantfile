@@ -54,6 +54,18 @@ Vagrant.configure("2") do |config|
       apt-get install -y apache2 php libapache2-mod-php php-mysql
             
       cp /vagrant/client.conf /etc/apache2/sites-available/
+      chmod 777 /vagrant
+      chmod 777 /vagrant/www
+      chmod 777 /vagrant/www/client
+      chmod 777 /vagrant/www/client/index.php
+      chmod 777 /vagrant/www/client/images/chair.png
+      chmod 777 /vagrant/www/client/images/pan.png
+      chmod 777 /vagrant/www/client/images/table.png
+      chmod 777 /vagrant/www/client/images/toaster.png
+      chmod 777 /vagrant/www/client/css/style.css
+      chmod 777 /vagrant/www/client/js/cart.js
+      chmod 777 /vagrant/www/client/js/shop.js
+      chmod 777 /vagrant/www/client/js/jquery-3.5.1.min.js
       a2ensite client
       a2dissite 000-default
       service apache2 reload
@@ -68,14 +80,18 @@ Vagrant.configure("2") do |config|
       apt-get update
       apt-get install -y apache2 php libapache2-mod-php php-mysql
             
-      # Change VM's webserver's configuration to use shared folder.
-      # (Look inside test-website.conf for specifics.)
       cp /vagrant/admin.conf /etc/apache2/sites-available/
-      # activate our website configuration ...
+
+      chmod 777 /vagrant
+      chmod 777 /vagrant/www
+      chmod 777 /vagrant/www/admin
+      chmod 777 /vagrant/www/admin/index.php
+      chmod 777 /vagrant/www/admin/css/style.css
+      chmod 777 /vagrant/www/admin/js/ship.js
+      chmod 777 /vagrant/www/admin/js/jquery-3.5.1.min.js
+
       a2ensite admin
-      # ... and disable the default website provided with Apache
       a2dissite 000-default
-      # Reload the webserver configuration, to pick up our changes
       service apache2 reload
     SHELL
   end
