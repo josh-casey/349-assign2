@@ -1,8 +1,8 @@
 <?php
-    $db_host = '192.168.2.12';
+    $db_host = 'assigndb.ctc0cmvle9g8.us-east-1.rds.amazonaws.com';
     $db_name = 'fvision';
-    $db_user = 'webuser';
-    $db_password = 'insecure_db_pw';
+    $db_user = 'root';
+    $db_password = 'jKDzwTO2YNdfcFvhFRho';
     $db = new mysqli($db_host, $db_user, $db_password, $db_name);
 
     if (!$db) {
