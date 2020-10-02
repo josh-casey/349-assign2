@@ -58,6 +58,13 @@ Vagrant.configure("2") do |config|
       chmod 777 /vagrant/www
       chmod 777 /vagrant/www/client
       chmod 777 /vagrant/www/client/index.php
+      chmod 777 /vagrant/www/client/images
+      chmod 777 /vagrant/www/client/css
+      chmod 777 /vagrant/www/client/js
+      chmod 777 /vagrant/www/client/private
+      chmod 777 /vagrant/www/client/private/header.php
+      chmod 777 /vagrant/www/client/private/sql.php
+      chmod 777 /vagrant/www/client/private/processCartContents.php
       chmod 777 /vagrant/www/client/images/chair.png
       chmod 777 /vagrant/www/client/images/pan.png
       chmod 777 /vagrant/www/client/images/table.png
@@ -89,6 +96,12 @@ Vagrant.configure("2") do |config|
       chmod 777 /vagrant/www/admin/css/style.css
       chmod 777 /vagrant/www/admin/js/ship.js
       chmod 777 /vagrant/www/admin/js/jquery-3.5.1.min.js
+      chmod 777 /vagrant/www/admin/css
+      chmod 777 /vagrant/www/admin/js
+      chmod 777 /vagrant/www/admin/private
+      chmod 777 /vagrant/www/admin/private/header.php
+      chmod 777 /vagrant/www/admin/private/sql.php
+      chmod 777 /vagrant/www/admin/private/toggleShip.php
 
       a2ensite admin
       a2dissite 000-default

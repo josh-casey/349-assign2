@@ -1,7 +1,7 @@
 <?php
         $db_host = 'assigndb.ctc0cmvle9g8.us-east-1.rds.amazonaws.com';
-        $db_name = 'fvision';
-        $db_user = 'root';
+        $db_name = 'shop';
+        $db_user = 'admin';
         $db_password = 'jKDzwTO2YNdfcFvhFRho';
         $db = new mysqli($db_host, $db_user, $db_password, $db_name);
 
